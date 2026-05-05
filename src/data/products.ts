@@ -1,41 +1,63 @@
+const catalogBase = "https://raw.githubusercontent.com/DERLIS2025/pietra-website/main/images/catalogo";
+
 export type Product = {
+  id: string;
   slug: string;
   name: string;
-  category: string;
-  price: string;
-  badge?: string;
-  rating?: number;
-  tone: string;
+  category: "Granito" | "Sinterizado" | "Cuarzo" | "Mármol" | "Especial";
+  shortDescription: string;
   description: string;
+  image: string;
+  gallery: string[];
+  badge?: string;
+  featured: boolean;
+  popular: boolean;
+  whatsappMessage: string;
+  applications: string[];
+  finish?: string;
+  seoTitle: string;
+  seoDescription: string;
 };
 
-export const featuredProducts: Product[] = [
-  { slug: "mesada-granito-negro", name: "Mesada de granito negro", category: "Mesadas", price: "Consultar", badge: "Más pedido", tone: "from-zinc-950 via-stone-700 to-zinc-300", description: "Superficie resistente con terminación pulida para cocinas modernas." },
-  { slug: "mesada-marmol-blanco", name: "Mesada de mármol blanco", category: "Mármol", price: "Consultar", badge: "Premium", tone: "from-white via-stone-100 to-stone-300", description: "Vetas suaves y presencia elegante para ambientes luminosos." },
-  { slug: "revestimiento-bano", name: "Revestimiento para baño", category: "Baños", price: "Consultar", badge: "Nuevo", tone: "from-stone-200 via-slate-100 to-pietra-green/40", description: "Placas a medida para baños cálidos, resistentes y fáciles de mantener." },
-  { slug: "isla-cocina-cuarzo", name: "Isla de cocina en cuarzo", category: "Cuarzo", price: "Consultar", tone: "from-pietra-warm via-white to-pietra-beige", description: "Islas funcionales con gran protagonismo visual." },
-  { slug: "escalera-marmol", name: "Escalera en mármol", category: "Escaleras", price: "Consultar", badge: "Premium", tone: "from-neutral-100 via-stone-300 to-neutral-500", description: "Peldaños precisos para obras residenciales y comerciales." },
-  { slug: "bacha-integrada", name: "Bacha integrada", category: "Cocinas", price: "Consultar", tone: "from-stone-50 via-stone-200 to-stone-400", description: "Diseño continuo y minimalista para mesadas de alto impacto." },
-  { slug: "mesa-personalizada", name: "Mesa personalizada", category: "Muebles", price: "Consultar", badge: "A medida", tone: "from-pietra-beige via-stone-300 to-zinc-600", description: "Piezas exclusivas para hogares, oficinas y espacios comerciales." },
-  { slug: "revestimiento-exterior", name: "Revestimiento exterior", category: "Exteriores", price: "Consultar", tone: "from-stone-500 via-stone-300 to-pietra-green", description: "Texturas naturales para fachadas y galerías." },
+type ProductSeed = Omit<Product, "image" | "gallery" | "whatsappMessage" | "seoTitle" | "seoDescription"> & { file: string };
+
+const descriptions = {
+  granito: "Material resistente y versátil para mesadas, cocinas, quinchos, revestimientos y superficies de uso diario.",
+  cuarzo: "Superficie de ingeniería de estética uniforme, ideal para proyectos modernos que buscan color, higiene y fácil mantenimiento.",
+  marmol: "Piedra natural elegante y atemporal para ambientes interiores, baños, revestimientos y detalles premium.",
+};
+
+const productSeeds: ProductSeed[] = [
+  { id: "granito-verde-ubatuba", slug: "granito-verde-ubatuba", name: "Verde Ubatuba", category: "Granito", shortDescription: "Granito oscuro con reflejos verdes para espacios sobrios y premium.", description: descriptions.granito, file: "granito-verde-ubatuba.jpg", badge: "Granito", featured: true, popular: true, applications: ["Mesadas de cocina", "Quinchos", "Barras", "Revestimientos"], finish: "Pulido" },
+  { id: "granito-negro-san-gabriel", slug: "granito-negro-san-gabriel", name: "Negro San Gabriel", category: "Granito", shortDescription: "Granito negro elegante, muy elegido para cocinas contemporáneas.", description: descriptions.granito, file: "granito-negro-san-gabriel.jpg", badge: "Más pedido", featured: true, popular: true, applications: ["Mesadas", "Islas", "Barras", "Escaleras"], finish: "Pulido" },
+  { id: "granito-cafe-imperial", slug: "granito-cafe-imperial", name: "Café Imperial", category: "Granito", shortDescription: "Tono cálido e intenso para proyectos con personalidad.", description: descriptions.granito, file: "granito-cafe-imperial.jpg", featured: true, popular: false, applications: ["Cocinas", "Baños", "Mesas", "Revestimientos"], finish: "Pulido" },
+  { id: "granito-gris-corumba", slug: "granito-gris-corumba", name: "Gris Corumba", category: "Granito", shortDescription: "Granito gris funcional para obras, quinchos y mesadas resistentes.", description: descriptions.granito, file: "granito-gris-corumba.jpg", featured: false, popular: true, applications: ["Quinchos", "Mesadas", "Exteriores", "Lavaderos"], finish: "Pulido" },
+  { id: "granito-blanco-dallas", slug: "granito-blanco-dallas", name: "Blanco Dallas", category: "Granito", shortDescription: "Base clara con movimiento natural para cocinas luminosas.", description: descriptions.granito, file: "granito-blanco-dallas.jpg", featured: true, popular: true, applications: ["Cocinas", "Islas", "Baños", "Revestimientos"], finish: "Pulido" },
+  { id: "granito-blanco-itaunas", slug: "granito-blanco-itaunas", name: "Blanco Itaúnas", category: "Granito", shortDescription: "Granito blanco natural para espacios limpios y modernos.", description: descriptions.granito, file: "granito-blanco-itaunas.jpg", featured: false, popular: true, applications: ["Mesadas", "Baños", "Cocinas", "Muebles"], finish: "Pulido" },
+  { id: "granito-blanco-di-capri", slug: "granito-blanco-di-capri", name: "Blanco Di Capri", category: "Granito", shortDescription: "Granito claro de estética premium para proyectos elegantes.", description: descriptions.granito, file: "granito-blanco-di-capri.jpg", badge: "Premium", featured: true, popular: false, applications: ["Mesadas", "Islas", "Baños", "Revestimientos"], finish: "Pulido" },
+  { id: "neolith-calacatta", slug: "neolith-calacatta", name: "Neolith Calacatta", category: "Sinterizado", shortDescription: "Sinterizado importado con inspiración Calacatta para alto diseño.", description: "Material sinterizado importado, resistente y de estética sofisticada para superficies premium.", file: "neolith-calacatta.jpg", badge: "Importado", featured: true, popular: true, applications: ["Cocinas premium", "Islas", "Revestimientos", "Baños"], finish: "Pulido / Satinado" },
+  { id: "cuarzo-blanco-estelar", slug: "cuarzo-blanco-estelar", name: "Cuarzo Blanco Estelar", category: "Cuarzo", shortDescription: "Cuarzo claro y luminoso para mesadas modernas.", description: descriptions.cuarzo, file: "cuarzo-blanco-estelar.jpg", badge: "Cuarzo", featured: true, popular: true, applications: ["Mesadas de cocina", "Islas", "Baños", "Muebles"], finish: "Pulido" },
+  { id: "cuarzo-rojo", slug: "cuarzo-rojo", name: "Cuarzo Rojo", category: "Cuarzo", shortDescription: "Color protagonista para barras, detalles y proyectos comerciales.", description: descriptions.cuarzo, file: "cuarzo-rojo.jpg", featured: false, popular: false, applications: ["Barras", "Locales", "Muebles", "Detalles decorativos"], finish: "Pulido" },
+  { id: "cuarzo-beige", slug: "cuarzo-beige", name: "Cuarzo Beige", category: "Cuarzo", shortDescription: "Tono neutro y cálido para ambientes atemporales.", description: descriptions.cuarzo, file: "cuarzo-beige.jpg", featured: false, popular: true, applications: ["Cocinas", "Baños", "Mesadas", "Revestimientos"], finish: "Pulido" },
+  { id: "cuarzo-gris", slug: "cuarzo-gris", name: "Cuarzo Gris", category: "Cuarzo", shortDescription: "Cuarzo sobrio para interiores modernos y de fácil combinación.", description: descriptions.cuarzo, file: "cuarzo-gris.jpg", featured: false, popular: true, applications: ["Mesadas", "Islas", "Baños", "Oficinas"], finish: "Pulido" },
+  { id: "cuarzo-negro", slug: "cuarzo-negro", name: "Cuarzo Negro", category: "Cuarzo", shortDescription: "Superficie oscura para diseños elegantes y contemporáneos.", description: descriptions.cuarzo, file: "cuarzo-negro.jpg", featured: true, popular: true, applications: ["Cocinas", "Barras", "Locales", "Muebles"], finish: "Pulido" },
+  { id: "cuarzo-verde-claro", slug: "cuarzo-verde-claro", name: "Cuarzo Verde Claro", category: "Cuarzo", shortDescription: "Color suave para proyectos distintivos y frescos.", description: descriptions.cuarzo, file: "cuarzo-verde-claro.jpg", featured: false, popular: false, applications: ["Baños", "Muebles", "Detalles", "Revestimientos"], finish: "Pulido" },
+  { id: "marron-emperador", slug: "marron-emperador", name: "Marrón Emperador", category: "Mármol", shortDescription: "Mármol cálido e intenso para ambientes de lujo.", description: descriptions.marmol, file: "marron-emperador.jpg", badge: "Mármol", featured: true, popular: true, applications: ["Baños", "Revestimientos", "Mesas", "Detalles"], finish: "Pulido" },
+  { id: "marmol-travertino", slug: "marmol-travertino", name: "Mármol Travertino", category: "Mármol", shortDescription: "Textura clásica y natural para proyectos cálidos.", description: descriptions.marmol, file: "marmol-travertino.jpg", featured: false, popular: true, applications: ["Revestimientos", "Baños", "Escaleras", "Fachadas interiores"], finish: "Pulido / Mate" },
+  { id: "marmol-blanco", slug: "marmol-blanco", name: "Mármol Blanco", category: "Mármol", shortDescription: "Elegancia clara y vetas naturales para espacios premium.", description: descriptions.marmol, file: "marmol-blanco.jpg", badge: "Premium", featured: true, popular: true, applications: ["Baños", "Mesadas", "Revestimientos", "Muebles"], finish: "Pulido" },
+  { id: "piedra-traslucida", slug: "piedra-traslucida", name: "Piedra Traslúcida", category: "Especial", shortDescription: "Material exclusivo con efecto retroiluminado para ambientes únicos.", description: "La Piedra Traslúcida permite el paso de la luz y crea efectos visuales únicos. Cada pieza tiene vetas naturales irrepetibles y está pensada para proyectos de alto impacto.", file: "piedra-traslucida.jpg", badge: "Especial de la Casa", featured: true, popular: true, applications: ["Muros retroiluminados", "Barras", "Baños de lujo", "Recepciones", "Decoración"], finish: "Pulido, Mate, Leather" },
 ];
 
-export const popularProducts: Product[] = [
-  { slug: "granito-negro-absoluto", name: "Granito negro absoluto", category: "Granito", price: "Consultar precio", rating: 5, tone: "from-black via-zinc-800 to-zinc-500", description: "Intenso, sobrio y de gran durabilidad." },
-  { slug: "cuarzo-blanco", name: "Cuarzo blanco", category: "Cuarzo", price: "Consultar precio", rating: 5, tone: "from-white via-stone-100 to-pietra-beige", description: "Ideal para cocinas claras y superficies higiénicas." },
-  { slug: "marmol-travertino", name: "Mármol travertino", category: "Mármol", price: "Consultar precio", rating: 5, tone: "from-amber-100 via-pietra-beige to-stone-400", description: "Textura clásica para ambientes cálidos." },
-  { slug: "granito-gris", name: "Granito gris", category: "Granito", price: "Consultar precio", rating: 4, tone: "from-zinc-200 via-zinc-400 to-zinc-700", description: "Versátil para interiores, quinchos y obras." },
-  { slug: "revestimiento-pared", name: "Revestimiento de pared", category: "Revestimientos", price: "Consultar precio", rating: 5, tone: "from-pietra-soft via-white to-pietra-green/50", description: "Paneles elegantes para destacar muros." },
-  { slug: "mesada-quincho", name: "Mesada para quincho", category: "Mesadas", price: "Consultar precio", rating: 5, tone: "from-stone-700 via-stone-400 to-pietra-beige", description: "Resistente para uso social e intensivo." },
-];
+export const products: Product[] = productSeeds.map((product) => ({
+  ...product,
+  image: `${catalogBase}/${product.file}`,
+  gallery: [`${catalogBase}/${product.file}`],
+  whatsappMessage: `Hola, quiero cotizar ${product.name} para mi proyecto.`,
+  seoTitle: `${product.name} | Marmolería Pietra Paraguay`,
+  seoDescription: `Cotizá ${product.name} en Marmolería Pietra. ${product.shortDescription}`,
+}));
 
-export const bestItems: Product[] = [
-  { slug: "granito-negro", name: "Granito negro", category: "Material", price: "Consultar", tone: "from-black via-zinc-700 to-zinc-400", description: "Elegancia oscura para mesadas y barras." },
-  { slug: "marmol-blanco", name: "Mármol blanco", category: "Material", price: "Consultar", tone: "from-white via-stone-100 to-stone-300", description: "Vetas naturales para proyectos premium." },
-  { slug: "cuarzo-claro", name: "Cuarzo claro", category: "Material", price: "Consultar", tone: "from-white via-pietra-warm to-pietra-beige", description: "Limpio, moderno y fácil de combinar." },
-  { slug: "revestimiento-premium", name: "Revestimiento premium", category: "Ambientes", price: "Consultar", tone: "from-stone-100 via-pietra-green/30 to-stone-500", description: "Terminaciones continuas para muros destacados." },
-  { slug: "mesada-cocina", name: "Mesada de cocina", category: "Producto", price: "Consultar", tone: "from-pietra-beige via-white to-zinc-300", description: "Diseño a medida con instalación profesional." },
-  { slug: "proyecto-medida", name: "Proyecto a medida", category: "Servicio", price: "Consultar", tone: "from-pietra-green via-pietra-beige to-pietra-warm", description: "Acompañamiento para hogares, empresas y obras." },
-];
-
-export const allProducts = [...featuredProducts, ...popularProducts, ...bestItems];
+export const featuredProducts = products.filter((product) => product.featured);
+export const popularProducts = products.filter((product) => product.popular);
+export const bestItems = products.slice(0, 6);
+export const allProducts = products;

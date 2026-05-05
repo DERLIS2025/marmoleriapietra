@@ -1,5 +1,6 @@
 import { BestItems } from "@/components/BestItems";
 import { BlogSection } from "@/components/BlogSection";
+import { CategoriesSection } from "@/components/CategoriesSection";
 import { CommercialSplitSection } from "@/components/CommercialSplitSection";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import { Hero } from "@/components/Hero";
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <Hero />
       <TrustBadges />
+      <CategoriesSection />
       <FeaturedProducts />
       <PromoBanners />
       <PopularProducts />

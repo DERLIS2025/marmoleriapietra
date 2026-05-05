@@ -6,8 +6,10 @@ import { TopBar } from "@/components/TopBar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Marmolería Pietra | Ecommerce de mármol, granito y cuarzo",
-  description: "Mesadas, revestimientos y proyectos a medida en mármol, granito y cuarzo para hogares, empresas y obras.",
+  metadataBase: new URL("https://marmoleriapietra.com"),
+  title: "Marmolería Pietra | Mármol, granito y cuarzo en Paraguay",
+  description: "Marmolería en Paraguay especializada en mármol, granito, cuarzo, mesadas para cocina, revestimientos de piedra y piedra traslúcida.",
+  keywords: ["marmolería en Paraguay", "mármol en Paraguay", "granito en Paraguay", "cuarzo en Paraguay", "mesadas de granito", "mesadas de mármol", "mesadas para cocina", "revestimientos de piedra", "piedra traslúcida Paraguay"],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

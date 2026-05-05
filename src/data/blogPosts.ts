@@ -1,5 +1,5 @@
 export const blogPosts = [
-  { slug: "piedra-ideal-cocina", title: "Cómo elegir la piedra ideal para tu cocina", meta: "Guía Pietra", category: "Inspiración", tone: "from-pietra-warm via-white to-stone-300" },
-  { slug: "marmol-granito-cuarzo", title: "Mármol, granito o cuarzo: diferencias principales", meta: "Guía Pietra", category: "Inspiración", tone: "from-stone-200 via-pietra-beige to-zinc-500" },
-  { slug: "banos-modernos-piedra", title: "Ideas para baños modernos con piedra natural", meta: "Guía Pietra", category: "Inspiración", tone: "from-white via-pietra-soft to-pietra-green/60" },
+  { slug: "mesadas-granito-paraguay", title: "Cómo elegir granito para mesadas de cocina", meta: "Guía Pietra", category: "Materiales", image: "https://raw.githubusercontent.com/DERLIS2025/pietra-website/main/images/categorias/cocina-6.jpg" },
+  { slug: "marmol-granito-cuarzo-paraguay", title: "Mármol, granito o cuarzo: qué conviene para tu proyecto", meta: "Guía Pietra", category: "Inspiración", image: "https://raw.githubusercontent.com/DERLIS2025/pietra-website/main/images/catalogo/neolith-calacatta.jpg" },
+  { slug: "piedra-traslucida-paraguay", title: "Piedra traslúcida: efecto retroiluminado para espacios únicos", meta: "Especial de la Casa", category: "Especial", image: "https://raw.githubusercontent.com/DERLIS2025/pietra-website/main/images/catalogo/piedra-traslucida.jpg" },
 ];
