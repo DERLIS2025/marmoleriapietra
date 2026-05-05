@@ -15,11 +15,10 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Inter", "ui-sans-serif", "system-ui"],
-        display: ["var(--font-display)", "Inter", "ui-sans-serif", "system-ui"],
+        display: ["var(--font-display)", "Playfair Display", "serif"],
       },
       boxShadow: {
-        soft: "0 18px 50px rgba(26, 26, 26, 0.08)",
-        card: "0 12px 35px rgba(26, 26, 26, 0.06)",
+        soft: "0 24px 70px rgba(26, 26, 26, 0.08)",
       },
     },
   },

@@ -1,23 +1,13 @@
 import Link from "next/link";
 import { blogPosts } from "@/data/blogPosts";
 import { PietraImage } from "./PietraImage";
-import { SectionHeader } from "./SectionHeader";
 
 export function BlogSection() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
-      <SectionHeader title="Inspiración para tu proyecto" description="Guías breves para elegir mejor entre mármol, granito, cuarzo y piedra traslúcida." action={<Link href="/productos" className="text-sm font-medium text-pietra-green hover:text-pietra-black">Ver materiales</Link>} />
-      <div className="grid gap-5 md:grid-cols-3">
-        {blogPosts.map((post) => (
-          <article key={post.slug} className="group overflow-hidden rounded-[1.35rem] border border-pietra-soft bg-white shadow-sm transition hover:shadow-card">
-            <div className="h-52 overflow-hidden"><PietraImage src={post.image} alt={post.title} className="transition duration-500 group-hover:scale-[1.03]" /></div>
-            <div className="p-5">
-              <p className="text-xs font-medium text-pietra-green">{post.category} · {post.meta}</p>
-              <h3 className="mt-2 min-h-[3.25rem] text-lg font-medium leading-tight text-pietra-black">{post.title}</h3>
-              <Link href={post.slug.includes("piedra") ? "/piedra-traslucida" : "/productos"} className="mt-5 inline-flex text-sm font-medium text-pietra-green transition hover:text-pietra-black">Leer más →</Link>
-            </div>
-          </article>
-        ))}
+    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between"><h2 className="text-2xl font-bold">Inspiración para tu proyecto</h2><Link href="/productos" className="rounded-full bg-pietra-black px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white">Ver materiales</Link></div>
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
+        {blogPosts.map((post) => <article key={post.slug} className="rounded-[1.4rem] bg-white p-3 shadow-sm"><div className="h-56 overflow-hidden rounded-[1.1rem]"><PietraImage src={post.image} alt={post.title} /></div><div className="p-3"><p className="text-xs text-neutral-500">{post.category} · {post.meta}</p><h3 className="mt-2 text-xl font-bold leading-tight">{post.title}</h3><Link href={post.slug.includes("piedra") ? "/piedra-traslucida" : "/productos"} className="mt-5 inline-flex border border-pietra-black px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em]">Leer más</Link></div></article>)}
       </div>
     </section>
   );

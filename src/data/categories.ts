@@ -23,7 +23,7 @@ export const categories: Category[] = [
     slug: "banos",
     name: "Baños y Sanitarios",
     description: "Revestimientos, vanitories y piezas a medida para baños modernos.",
-    image: `${categoryBase}/ba%C3%B1o-3.jpg`,
+    image: `${categoryBase}/baño-3.jpg`,
     href: "/categoria/banos",
   },
   {
