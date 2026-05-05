@@ -1,0 +1,2 @@
+const labels = ["Cocinas", "Baños", "Quinchos", "Granitos", "Importados", "Exclusivos"];
+export function TrustLogos() { return <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><div className="grid grid-cols-2 gap-4 rounded-[1.4rem] bg-white px-6 py-8 text-center text-xl font-black uppercase tracking-[0.18em] text-neutral-300 md:grid-cols-6">{labels.map((label) => <span key={label}>{label}</span>)}</div></section>; }
