@@ -99,12 +99,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
             category: product.category,
             description: product.description
           }}
-          allProducts={allProducts.map(p => ({
-            slug: p.slug,
-            name: p.name,
-            image: p.image,
-            category: p.category
-          }))}
         />
       </section>
     </main>
