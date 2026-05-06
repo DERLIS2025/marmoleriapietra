@@ -13,7 +13,7 @@ export function Hero() {
       <div className="mx-auto grid max-w-7xl items-center gap-4 px-4 py-5 sm:px-5 md:gap-6 md:py-10 lg:grid-cols-[0.88fr_1.12fr] lg:px-8 lg:py-14">
         <div className="max-w-xl">
           <p className="text-xs font-medium tracking-[0.16em] text-pietra-green md:tracking-[0.18em]">Mármol · Granito · Cuarzo</p>
-          <h1 className="mt-2.5 font-display text-[2.15rem] font-semibold leading-[1.06] text-pietra-black min-[390px]:text-[2.3rem] md:hidden">
+          <h1 className="mt-2.5 font-display text-[2.15rem] font-semibold leading-[1.06] text-pietra-black min-[390px]:text-[2.3rem] md:hidden text-center md:text-left">
 <>
   <span className="hero-brush-mobile">Mesadas</span> &{" "}
   <span className="hero-brush-mobile">revestimientos</span> en{" "}
