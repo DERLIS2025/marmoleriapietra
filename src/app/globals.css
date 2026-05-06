@@ -62,3 +62,18 @@ a { text-decoration: none; }
     bottom: 0.06em;
   }
 }
+.image-overlay-card {
+  @apply rounded-[28px] border border-white/10 bg-black/50 backdrop-blur-md shadow-[0_14px_40px_rgba(0,0,0,0.22)];
+}
+
+.image-overlay-eyebrow {
+  @apply text-[11px] font-medium uppercase tracking-[0.22em] text-[#9BB7AA] sm:text-xs;
+}
+
+.image-overlay-title {
+  @apply mt-3 text-2xl font-semibold leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)] sm:text-[2rem];
+}
+
+.image-overlay-text {
+  @apply mt-3 text-sm leading-6 text-white/80 sm:text-base;
+}
