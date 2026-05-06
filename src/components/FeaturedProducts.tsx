@@ -17,7 +17,9 @@ export function FeaturedProducts() {
           <div className="absolute inset-x-3 bottom-3 rounded-2xl bg-white/92 p-4 backdrop-blur-sm sm:inset-x-5 sm:bottom-5 sm:rounded-3xl sm:p-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#BFD6CB] sm:text-xs">Materiales importados</p>
             <h3 className="mt-2 text-xl font-semibold leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)] sm:text-2xl">Superficies para proyectos premium</h3>
-            <p className="mt-2 line-clamp-2 text-sm leading-6 text-neutral-600 sm:mt-3">Mármoles, granitos, cuarzos y sinterizados seleccionados con asesoramiento técnico.</p>
+            <p className="mt-3 max-w-[340px] text-sm font-medium leading-6 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
+              Mármoles, granitos, cuarzos y sinterizados seleccionados con asesoramiento técnico.
+            </p>
             <Link href="/productos" className="mt-4 inline-flex min-h-11 items-center rounded-full bg-pietra-black px-5 text-sm font-medium text-white transition hover:bg-pietra-green sm:mt-5">Ver catálogo</Link>
           </div>
         </div>
