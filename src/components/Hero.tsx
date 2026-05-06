@@ -20,8 +20,8 @@ export function Hero() {
           <p className="mt-3 max-w-lg text-[15px] leading-7 text-neutral-700 md:hidden">Fabricamos e instalamos superficies a medida para cocinas, baños, quinchos y proyectos especiales.</p>
           <p className="mt-4 hidden max-w-lg text-lg leading-8 text-neutral-700 md:block"><>
   Proveemos e instalamos <span className="hero-italic-accent">mesadas</span>, revestimientos y
-  <span className="hero-italic-accent"> piezas a medida</span>. Te ayudamos a elegir el
-  <span className="hero-brush"> material ideal</span> para tu proyecto.
+  <span className="hero-italic-accent"> piezas a medida</span>. Te ayudamos a elegir el{" "}
+  <span className="hero-brush">material ideal</span> para tu proyecto.
 </></p>
           <div className="mt-5 grid grid-cols-1 gap-2.5 min-[390px]:grid-cols-2 md:mt-6 md:flex md:items-center md:gap-3">
             <Link href={createWhatsAppLink()} className="inline-flex min-h-12 items-center justify-center rounded-full bg-pietra-black px-5 text-sm font-medium text-white transition hover:bg-pietra-green">Solicitar cotización</Link>

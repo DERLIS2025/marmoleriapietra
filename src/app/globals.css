@@ -48,9 +48,9 @@ a { text-decoration: none; }
   left: -0.08em;
   right: -0.08em;
   bottom: 0.08em;
-  height: 0.42em;
+  height: 0.46em;
   background: #5A7C6C;
-  opacity: 0.22;
+  opacity: 0.34;
   border-radius: 999px 18px 999px 22px;
   transform: rotate(-1.2deg) skewX(-12deg);
   z-index: -1;
