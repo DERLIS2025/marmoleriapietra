@@ -6,7 +6,7 @@ import { categories } from "@/data/categories";
 
 const AUTO_DELAY = 3600;
 
-export default function CategoriesSection() {
+export function CategoriesSection() {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -166,3 +166,5 @@ export default function CategoriesSection() {
     </section>
   );
 }
+
+export default CategoriesSection;
