@@ -4,6 +4,7 @@ import { PietraImage } from "@/components/PietraImage";
 import { allProducts } from "@/data/products";
 import { createProductWhatsAppLink } from "@/lib/whatsapp";
 import ProductSimulator from "@/components/ProductSimulator";
+import RoomVisualizer from "@/components/RoomVisualizer";
 
 type ProductPageProps = { params: Promise<{ slug: string }> };
 
@@ -19,8 +20,10 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = allProducts.find((item) => item.slug === slug) ?? allProducts[0];
+  
   return (
     <main className="bg-pietra-cream">
+      {/* PDP HEADER */}
       <section className="mx-auto grid max-w-7xl gap-8 px-5 py-8 sm:px-6 sm:py-10 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-14">
         <div className="overflow-hidden rounded-[2rem] shadow-soft">
           <PietraImage src={product.image} alt={product.name} />
@@ -62,14 +65,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href={createProductWhatsAppLink(product.name)}
-              className="rounded-full bg-pietra-black px-6 py-3 text-center text-sm font-medium text-white hover:bg-pietra-green"
+              className="rounded-full bg-pietra-black px-6 py-3 text-center text-sm font-medium text-white hover:bg-pietra-green transition-colors"
             >
               Cotizar material
             </Link>
 
             <Link
               href="/productos"
-              className="rounded-full border border-pietra-black px-6 py-3 text-center text-sm font-medium"
+              className="rounded-full border border-pietra-black px-6 py-3 text-center text-sm font-medium hover:bg-pietra-black hover:text-white transition-colors"
             >
               Volver a catálogo
             </Link>
@@ -77,7 +80,33 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </section>
       </section>
 
-      <ProductSimulator product={product} />
+      {/* ============================================ */}
+      {/* SIMULADOR CON FOTO DE STOCK (referencial)     */}
+      {/* ============================================ */}
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pb-8">
+        <ProductSimulator product={product} />
+      </section>
+
+      {/* ============================================ */}
+      {/* NUEVO: VISUALIZADOR CON FOTO REAL DEL CLIENTE */}
+      {/* ============================================ */}
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pb-14">
+        <RoomVisualizer 
+          product={{
+            slug: product.slug,
+            name: product.name,
+            image: product.image,
+            category: product.category,
+            description: product.description
+          }}
+          allProducts={allProducts.map(p => ({
+            slug: p.slug,
+            name: p.name,
+            image: p.image,
+            category: p.category
+          }))}
+        />
+      </section>
     </main>
   );
 }
