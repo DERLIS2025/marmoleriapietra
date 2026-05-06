@@ -32,8 +32,8 @@ export function Hero() {
           <PietraImage src={heroImage} alt="Cocina premium con mesada Pietra" loading="eager" className="object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent md:from-black/40 md:via-black/5" />
           <div className="absolute bottom-3 left-3 right-3 hidden rounded-2xl bg-white/92 p-4 shadow-card backdrop-blur-sm md:block sm:bottom-5 sm:left-5 sm:right-auto sm:max-w-sm sm:p-5">
-            <p className="text-[11px] font-medium tracking-[0.14em] text-pietra-green">Especialistas desde 2008</p>
-            <p className="mt-1.5 text-base font-medium leading-snug text-pietra-black sm:text-xl">Mármol, granito y cuarzo para espacios únicos.</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#BFD6CB]">Especialistas desde 2008</p>
+            <p className="mt-1.5 text-base font-medium leading-snug text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)] sm:text-xl">Mármol, granito y cuarzo para espacios únicos.</p>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-2 md:hidden">
