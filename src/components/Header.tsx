@@ -13,7 +13,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-pietra-soft/80 bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-5 lg:h-[4.5rem] lg:px-8">
-        <Link href="/" className="relative block h-9 w-[104px] sm:h-10 sm:w-[142px]" aria-label="Marmolería Pietra"><Image src="/images/logo/pietra-logo-transparente.png" alt="Marmolería Pietra" fill sizes="(max-width: 640px) 104px, 142px" className="object-contain object-left" priority /></Link>
+        <Link href="/" className="relative block h-14 w-[150px] sm:w-[175px] md:w-[190px]" aria-label="Marmolería Pietra"><Image src="/images/logo/pietra-logo-cropped.png" alt="Marmolería Pietra" fill sizes="(max-width: 640px) 150px, (max-width: 768px) 175px, 190px" className="object-contain object-left" priority /></Link>
         <nav className="hidden items-center gap-5 text-[11px] font-medium tracking-[0.12em] text-neutral-700 lg:flex xl:gap-7">
           {navigation.map((item) => <Link key={item.href} href={item.href} className="transition hover:text-pietra-green">{item.label}</Link>)}
         </nav>
