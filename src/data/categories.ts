@@ -37,8 +37,8 @@ export const categories: Category[] = [
   {
     id: "granitos-exclusivos",
     slug: "granitos-exclusivos",
-    name: "Granitos Exclusivos",
-    description: "Granitos seleccionados por su resistencia, belleza natural y terminación premium.",
+    name: "Revestido de pared",
+    description: "Revestimientos de pared seleccionados por su resistencia, belleza natural y terminación premium.",
     image: `${categoryBase}/granito.jpg`,
     href: "/categoria/granitos-exclusivos",
   },
