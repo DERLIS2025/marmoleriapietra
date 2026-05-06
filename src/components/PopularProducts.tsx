@@ -54,22 +54,22 @@ export function PopularProducts() {
   };
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+    <section className="mx-auto max-w-7xl px-4 py-7 sm:px-5 lg:px-8 lg:py-10">
       <SectionHeader
         eyebrow="Más consultados"
         title="Productos populares"
         description="Materiales agrupados por tipo para comparar opciones sin saturación visual."
       />
-      <div className="space-y-8 lg:space-y-10">
+      <div className="space-y-6 lg:space-y-10">
         {popularProductGroups.map((group) => {
           const products = getProductsByIds(group.productIds);
 
           return (
-            <section key={group.id} className="rounded-[1.5rem] border border-pietra-soft bg-white/55 p-4 shadow-sm sm:p-5 lg:p-6">
-              <div className="mb-5 flex items-end justify-between gap-4">
+            <section key={group.id} className="rounded-[1.45rem] border border-pietra-soft bg-white/60 p-3.5 shadow-sm sm:p-5 lg:p-6">
+              <div className="mb-4 flex items-end justify-between gap-4 sm:mb-5">
                 <div className="max-w-2xl">
-                  <h3 className="text-xl font-semibold leading-tight text-pietra-black sm:text-2xl">{group.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-neutral-600">{group.subtitle}</p>
+                  <h3 className="text-lg font-semibold leading-tight text-pietra-black sm:text-2xl">{group.title}</h3>
+                  <p className="mt-1.5 text-sm leading-6 text-neutral-600 sm:mt-2">{group.subtitle}</p>
                 </div>
                 <div className="hidden shrink-0 items-center gap-2 sm:flex">
                   <button onClick={() => scrollGroup(group.id, "previous")} aria-label={`Ver productos anteriores de ${group.title}`} className="grid h-10 w-10 place-items-center rounded-full border border-pietra-soft bg-white text-pietra-black transition hover:border-pietra-green hover:text-pietra-green"><Icon name="arrow" className="h-4 w-4 rotate-180" /></button>
@@ -78,10 +78,10 @@ export function PopularProducts() {
               </div>
               <div
                 ref={(node) => { carouselRefs.current[group.id] = node; }}
-                className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-1 sm:gap-6 lg:gap-7"
+                className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-1 sm:gap-6 lg:gap-7"
               >
                 {products.map((product) => (
-                  <div key={product.id} className="w-[82%] shrink-0 snap-start sm:w-[calc((100%_-_24px)/2)] md:w-[calc((100%_-_48px)/3)] lg:w-[calc((100%_-_84px)/4)]">
+                  <div key={product.id} className="w-[min(78vw,285px)] shrink-0 snap-start sm:w-[calc((100%_-_24px)/2)] md:w-[calc((100%_-_48px)/3)] lg:w-[calc((100%_-_84px)/4)]">
                     <ProductCard product={product} showRating />
                   </div>
                 ))}
