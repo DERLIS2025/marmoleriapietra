@@ -14,9 +14,15 @@ export function Hero() {
         <div className="max-w-xl">
           <p className="text-xs font-medium tracking-[0.16em] text-pietra-green md:tracking-[0.18em]">Mármol · Granito · Cuarzo</p>
           <h1 className="mt-2.5 font-display text-[2.15rem] font-semibold leading-[1.06] text-pietra-black min-[390px]:text-[2.3rem] md:hidden">Mesadas y revestimientos en mármol, granito y cuarzo</h1>
-          <h1 className="mt-3 hidden font-display text-5xl font-semibold leading-[1.04] text-pietra-black md:block lg:text-6xl">Lujo en cada detalle de granito.</h1>
+          <h1 className="mt-3 hidden font-display text-5xl font-semibold leading-[1.04] text-pietra-black md:block lg:text-6xl"><>
+  Lujo en cada <span className="hero-brush">detalle</span> de <span className="hero-italic-accent">granito</span>.
+</></h1>
           <p className="mt-3 max-w-lg text-[15px] leading-7 text-neutral-700 md:hidden">Fabricamos e instalamos superficies a medida para cocinas, baños, quinchos y proyectos especiales.</p>
-          <p className="mt-4 hidden max-w-lg text-lg leading-8 text-neutral-700 md:block">Proveemos e instalamos mesadas, revestimientos y piezas a medida. Te ayudamos a elegir el material ideal para tu proyecto.</p>
+          <p className="mt-4 hidden max-w-lg text-lg leading-8 text-neutral-700 md:block"><>
+  Proveemos e instalamos <span className="hero-italic-accent">mesadas</span>, revestimientos y
+  <span className="hero-italic-accent"> piezas a medida</span>. Te ayudamos a elegir el
+  <span className="hero-brush"> material ideal</span> para tu proyecto.
+</></p>
           <div className="mt-5 grid grid-cols-1 gap-2.5 min-[390px]:grid-cols-2 md:mt-6 md:flex md:items-center md:gap-3">
             <Link href={createWhatsAppLink()} className="inline-flex min-h-12 items-center justify-center rounded-full bg-pietra-black px-5 text-sm font-medium text-white transition hover:bg-pietra-green">Solicitar cotización</Link>
             <Link href="/trabajos" className="inline-flex min-h-12 items-center justify-center rounded-full border border-pietra-black/20 bg-white/60 px-5 text-sm font-medium text-pietra-black transition hover:border-pietra-green hover:text-pietra-green">Ver trabajos</Link>
