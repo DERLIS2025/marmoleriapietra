@@ -12,8 +12,8 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-pietra-soft/80 bg-white/95 backdrop-blur-md">
-      <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between px-4 sm:px-5 lg:h-[4.5rem] lg:px-8">
-        <Link href="/" className="relative block h-14 w-[150px] sm:w-[175px] md:w-[210px]" aria-label="Marmolería Pietra"><Image src="/images/logo/pietra-logo-cropped.png" alt="Marmolería Pietra" fill sizes="(max-width: 640px) 150px, (max-width: 768px) 175px, 210px" className="object-contain object-left" priority /></Link>
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-5 lg:h-[4.5rem] lg:px-8">
+        <Link href="/" className="relative block h-9 w-[104px] sm:h-10 sm:w-[142px]" aria-label="Marmolería Pietra"><Image src="/images/logo/pietra-logo-transparente.png" alt="Marmolería Pietra" fill sizes="(max-width: 640px) 104px, 142px" className="object-contain object-left" priority /></Link>
         <nav className="hidden items-center gap-5 text-[11px] font-medium tracking-[0.12em] text-neutral-700 lg:flex xl:gap-7">
           {navigation.map((item) => <Link key={item.href} href={item.href} className="transition hover:text-pietra-green">{item.label}</Link>)}
         </nav>
@@ -23,7 +23,6 @@ export function Header() {
           <Link aria-label="Presupuesto" href={createWhatsAppLink()} className="grid h-10 w-10 place-items-center rounded-full bg-pietra-black text-white transition hover:bg-pietra-green"><Icon name="bag" className="h-4 w-4" /></Link>
         </div>
         <div className="flex items-center gap-2 lg:hidden">
-          <button aria-label="Buscar" className="grid h-11 w-11 place-items-center rounded-full text-neutral-700 transition hover:bg-pietra-soft"><Icon name="search" className="h-5 w-5" /></button>
           <Link aria-label="Solicitar cotización" href={createWhatsAppLink()} className="grid h-11 w-11 place-items-center rounded-full bg-pietra-black text-white transition hover:bg-pietra-green"><Icon name="bag" className="h-5 w-5" /></Link>
           <button className="grid h-11 w-11 place-items-center rounded-full border border-pietra-soft" onClick={() => setOpen(!open)} aria-label="Abrir menú"><Icon name={open ? "x" : "menu"} className="h-5 w-5" /></button>
         </div>
